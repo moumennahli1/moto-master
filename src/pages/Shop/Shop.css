@@ -1,0 +1,477 @@
+.moto-shop {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Shop Hero Section */
+.moto-shop-hero {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("../../assets/bg.jpg") center/cover;
+  color: white;
+  padding: 100px 0 60px;
+  text-align: center;
+}
+
+.moto-shop-hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.moto-shop-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.moto-shop-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 3rem;
+}
+
+.moto-shop-stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.moto-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.moto-stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ff6b35;
+}
+
+.moto-stat-label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Shop Controls */
+.moto-shop-controls {
+  background: white;
+  padding: 1.5rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.moto-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.moto-controls-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.moto-category-filter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.moto-filter-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: #ff6b35;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.moto-filter-toggle:hover {
+  background: #e55a2e;
+}
+
+.moto-category-list {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.moto-category-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: transparent;
+  border: 2px solid #e0e0e0;
+  border-radius: 30px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.moto-category-btn:hover {
+  background: #ff6b35;
+  color: white;
+  border-color: #ff6b35;
+}
+
+.moto-category-active {
+  background: #ff6b35;
+  color: white;
+  border-color: #ff6b35;
+}
+
+.moto-sort-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: #f8f9fa;
+  border-radius: 5px;
+}
+
+.moto-sort-select {
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  min-width: 150px;
+}
+
+/* Products Grid */
+.moto-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 3rem 0;
+}
+
+.moto-product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  position: relative;
+}
+
+.moto-product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.moto-featured-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #ff6b35;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.moto-discount-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #28a745;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.moto-product-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.moto-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.moto-product-card:hover .moto-product-img {
+  transform: scale(1.05);
+}
+
+.moto-product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.moto-product-card:hover .moto-product-overlay {
+  opacity: 1;
+}
+
+.moto-icon-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  color: #333;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moto-icon-btn:hover {
+  background: #ff6b35;
+  color: white;
+  transform: scale(1.1);
+}
+
+.moto-product-info {
+  padding: 1.5rem;
+}
+
+.moto-product-category {
+  color: #666;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.moto-product-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.moto-product-specs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.moto-spec {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.moto-color-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid #ddd;
+}
+
+.moto-product-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.moto-star-filled {
+  color: #ffc107;
+  font-size: 0.9rem;
+}
+
+.moto-star-empty {
+  color: #e0e0e0;
+  font-size: 0.9rem;
+}
+
+.moto-rating-value {
+  font-weight: 600;
+  color: #666;
+  margin-left: 0.5rem;
+}
+
+.moto-product-price {
+  margin-bottom: 1.2rem;
+}
+
+.moto-original-price {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 0.8rem;
+  font-size: 1rem;
+}
+
+.moto-current-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ff6b35;
+}
+
+.moto-view-details-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.moto-view-details-btn:hover {
+  background: #ff6b35;
+}
+
+/* Shop Footer */
+.moto-shop-footer {
+  padding: 3rem 0;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 2rem;
+}
+
+.moto-shop-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.moto-feature {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.moto-feature:hover {
+  transform: translateY(-5px);
+}
+
+.moto-feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.moto-feature-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.moto-feature-desc {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .moto-shop-title {
+    font-size: 2.5rem;
+  }
+
+  .moto-shop-stats {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .moto-controls-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .moto-filter-toggle {
+    display: flex;
+  }
+
+  .moto-category-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background: white;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .moto-category-list.moto-show {
+    display: flex;
+  }
+
+  .moto-category-btn {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #eee;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .moto-products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .moto-products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .moto-shop-features {
+    grid-template-columns: 1fr;
+  }
+
+  .moto-shop-title {
+    font-size: 2rem;
+  }
+
+  .moto-shop-subtitle {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,98 @@
+.companys{
+  margin: 100px auto;
+  width: 90%;
+  display: flex;
+  overflow-x: auto;
+}
+.companys::-webkit-scrollbar {
+  display: none;
+}
+.cardtwo::before {
+  border-radius: 50%;
+  width: 7rem;
+  height: 7rem;
+  top: 20%;
+}
+
+.cardtwo::after {
+  content: "";
+  background-color: #7090fa4b;
+  position: absolute;
+  filter: blur(10px);
+}
+.cardtwo {
+  flex: 0 0 15em;
+}
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  animation: spin 10s infinite linear;
+  padding-right: 1em;
+}
+.cards img{
+    height: 50px;
+}
+.cards .red,
+.cards .blue,
+.cards .green {
+  width: 100px;
+  height: 100px;
+  font-family: "CustomFont", Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.cards .cardtwo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transition: 1ms;
+}
+.cardtwo img {
+  width: 80%;
+  height: 80%;
+  margin-bottom: 10px;
+}
+.cards .cardtwo p.tip {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.cards .cardtwo p.second-text {
+  font-size: 0.7em;
+}
+
+.cards .cardtwo:hover {
+  transform: scale(1.1, 1.1);
+  transition: 0.3s ease;
+}
+
+.cards:hover > .cardtwo:not(:hover) {
+  filter: blur(5px);
+  transform: scale(0.9, 0.9);
+  transition: 0.3s ease;
+}
+@keyframes spin {
+  from {
+    translate: 0;
+  }
+  to {
+    translate: -100%;
+  }
+}
+@media (max-width: 768px) {
+  .cardtwo img {
+    width: 70%;
+    height: 700%;
+  }
+  .collection2 {
+    height: 1750px;
+    margin-bottom: 200px;
+  }
+}
