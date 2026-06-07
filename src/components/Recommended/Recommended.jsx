@@ -20,6 +20,7 @@ const collectionItems = [
     name: "Harley Davidson Street 750",
     cost: "60000dh💸",
     label: "Classic",
+    details: "A refined cruiser with vintage attitude and bold road presence.",
     stars: 4.8,
     image: product1,
   },
@@ -27,49 +28,57 @@ const collectionItems = [
     id: 2,
     name: "BMW SXR 600RR",
     cost: "70000dh",
-    label: "Sponrts",
+    label: "Sports",
+    details: "Track-inspired performance, sharp handling, and premium styling.",
     stars: 4.6,
-    image: product2, // Using imported image
+    image: product2,
   },
   {
     id: 3,
     name: "Honda SH 150i",
     cost: "45999dh💸",
-    label: "modern",
+    label: "Modern",
+    details: "A sleek city ride with comfort, efficiency, and standout design.",
     stars: 4.9,
-    image: product3, // Using imported image
+    image: product3,
   },
   {
     id: 4,
     name: "Becane 33",
     cost: "9000dh💸",
-    label: "POPULAR",
+    label: "Popular",
+    details:
+      "An accessible, stylish machine that balances everyday use and flair.",
     stars: 4.7,
-    image: product4, // Using imported image
+    image: product4,
   },
   {
     id: 5,
     name: "Becane 33",
     cost: "9000dh💸",
-    label: "TRENDING",
+    label: "Trending",
+    details:
+      "Fresh design details and modern performance make it an instant favorite.",
     stars: 4.5,
-    image: product2, // Using imported image
+    image: product2,
   },
   {
     id: 6,
     name: "Becane 33",
     cost: "9000dh💸",
-    label: "COMPLETE ",
+    label: "Complete",
+    details: "A complete package of comfort, durability, and premium finish.",
     stars: 4.8,
-    image: product1, // Using imported image
+    image: product1,
   },
   {
     id: 7,
     name: "Becane 33",
     cost: "9000dh💸",
-    label: "GOOD",
+    label: "Good",
+    details: "A dependable ride with refined lines and a premium feel.",
     stars: 4.7,
-    image: product3, // Using imported image
+    image: product3,
   },
 ];
 
@@ -96,77 +105,86 @@ const FeaturedCollection = () => {
 
   return (
     <>
-    <div className="recom-container">
-      <div className="collection-header">
-        <h2 className="collection-title">Featured Inventory</h2>
-      </div>
+      <div className="recom-container">
+        <div className="collection-header">
+          <h2 className="collection-title">Featured Inventory</h2>
+        </div>
 
-      <div className="collection-wrapper">
-        <button className="nav-button nav-prev" onClick={scrollLeft}>
-          <ChevronLeft size={24} />
-        </button>
+        <div className="collection-wrapper">
+          <button className="nav-button nav-prev" onClick={scrollLeft}>
+            <ChevronLeft size={24} />
+          </button>
 
-        <div className="featured-collection" ref={scrollContainer}>
-          {collectionItems.map((item, index) => (
-            <article key={item.id} className="product-card elevated-shadow">
-              <div className="product-badge">{item.label}</div>
+          <div className="featured-collection" ref={scrollContainer}>
+            {collectionItems.map((item, index) => (
+              <article key={item.id} className="product-card elevated-shadow">
+                <div className="product-badge">{item.label}</div>
 
-              {/* Using imported images */}
-              {item.image ? (
-                <img
-                  className="product-image"
-                  src={item.image}
-                  alt={item.name}
-                />
-              ) : (
-                // Fallback to Unsplash placeholder images
-                <img
-                  className="product-image"
-                  src={unsplashImages[index] || unsplashImages[0]}
-                  alt={item.name}
-                  loading="lazy"
-                />
-              )}
+                {/* Using imported images */}
+                {item.image ? (
+                  <img
+                    className="product-image"
+                    src={item.image}
+                    alt={item.name}
+                  />
+                ) : (
+                  // Fallback to Unsplash placeholder images
+                  <img
+                    className="product-image"
+                    src={unsplashImages[index] || unsplashImages[0]}
+                    alt={item.name}
+                    loading="lazy"
+                  />
+                )}
 
-              <div className="product-details">
-                <div className="product-name">{item.name}</div>
-                <p className="product-description">{item.details}</p>
+                <div className="product-details">
+                  <div className="product-name">{item.name}</div>
+                  <p className="product-description">{item.details}</p>
 
-                <div className="rating-container">
-                  {[...Array(5)].map((_, starIndex) => (
-                    <Star
-                      key={starIndex}
-                      size={16}
-                      fill={
-                        starIndex < Math.floor(item.stars)
-                          ? "#FFD700"
-                          : "#E2E8F0"
-                      }
-                      color={
-                        starIndex < Math.floor(item.stars)
-                          ? "#FFD700"
-                          : "#E2E8F0"
-                      }
-                      style={{ marginRight: "2px" }}
-                    />
-                  ))}
-                  <span className="rating-value">{item.stars}</span>
+                  <div className="rating-container">
+                    {[...Array(5)].map((_, starIndex) => (
+                      <Star
+                        key={starIndex}
+                        size={16}
+                        fill={
+                          starIndex < Math.floor(item.stars)
+                            ? "#FFD700"
+                            : "#E2E8F0"
+                        }
+                        color={
+                          starIndex < Math.floor(item.stars)
+                            ? "#FFD700"
+                            : "#E2E8F0"
+                        }
+                        style={{ marginRight: "2px" }}
+                      />
+                    ))}
+                    <span className="rating-value">{item.stars}</span>
+                  </div>
+
+                  <div className="product-price">{item.cost}</div>
                 </div>
+              </article>
+            ))}
+          </div>
+          <div className="browse-all-wrapper">
+            <button className="browse-all">Browse All</button>
+          </div>
 
-                <div className="product-price">{item.cost}</div>
-              </div>
-            </article>
-          ))}
+          <button className="nav-button nav-next" onClick={scrollRight}>
+            <ChevronRight size={24} />
+          </button>
+          <iframe
+            width="747"
+            height="408"
+            src="https://www.youtube.com/embed/PSHTkGHfSVo"
+            title="BMW S1000RR CINEMATIC | 4K"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
         </div>
-        <div className="browse-all-wrapper">
-          <button className="browse-all">Browse All</button>
-        </div>
-
-        <button className="nav-button nav-next" onClick={scrollRight}>
-          <ChevronRight size={24} />
-        </button>
-        <iframe width="747" height="408" src="https://www.youtube.com/embed/PSHTkGHfSVo" title="BMW S1000RR CINEMATIC | 4K" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
       </div>
     </>
   );
